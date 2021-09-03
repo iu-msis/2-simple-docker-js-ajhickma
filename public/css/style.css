@@ -44,6 +44,18 @@ footer{
     padding: 8px;;
   }
 
+  .noborder{
+    margin: 0px;
+    padding: 0;
+    border-collapse: separate;
+    border:none;
+    table-layout: auto;
+  }
+
+  .tableColor{
+    background-color: rgb(237,126,92);
+    color: white;
+  }
 
 
 
