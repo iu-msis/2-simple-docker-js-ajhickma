@@ -2,12 +2,7 @@ footer{
     background-color: rgb(237,126,92);
     color: white;
     text-align: center;
-    padding: 4px;
-    margin-top: 20px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
+
     padding: 1rem;
   }
 
