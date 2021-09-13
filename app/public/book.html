@@ -41,7 +41,7 @@
     <main>
       <h2>My Books</h2>
 
-      <table class="table table-bordered table-striped table-hover table-condensed text-center"> 
+      <table id="taskTable" class="table table-bordered table-striped table-hover table-condensed text-center"> 
         <thead class= "tableColor">
           <tr> 
             <th class= "text-center">Title</th> 
@@ -166,7 +166,11 @@
     <footer class = "footer">
       <p>As the Page Turns  |  Mom's Phone: 800-555-1234  |  Mom's Basement</p>
     </footer>
-
+    <script src='js/tablesort.min.js'></script>
+    <script>
+      new Tablesort(document.getElementById('taskTable'));
+    </script>
+    <!--source: https://github.com/tristen/tablesort/blob/gh-pages/tablesort.css -->
   </body>
 </html>
 <!-- Title: <input type= "text" name="firstName" id="firstName" ><br>
