@@ -1,27 +1,30 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>As the Page Turns</title>
-    
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
-    </script>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-  </head>
 
-  <body class ="container">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>As the Page Turns</title>
 
-    <header class ="row">
-      <H1><a href="https://clipground.com/images/book-clip-art-13.jpg"><img src= "img/book.png" alt= "Orange Book" height="65px"></a> As the Page Turns</H1>
-    </header>
+  <!-- Compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <!-- Compiled and minified JavaScript -->
 
-    <nav class = "row navbar navbar-default">
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body class="container">
+
+  <header class="row">
+    <H1><a href="https://clipground.com/images/book-clip-art-13.jpg"><img src="img/book.png" alt="Orange Book"
+          height="65px"></a> As the Page Turns</H1>
+  </header>
+
+  <!-- <nav class = "row navbar navbar-default">
       <div class = "navbar-header">
         <button class = "navbar-toggle" data-toggle="collapse" data-target = "#myMenu">
           <span class = "icon-bar"></span>
@@ -36,37 +39,70 @@
           <li><a href="recommendation.html"class="nav_links">Book Recommendations</a></li> 
         </ul>
       </div>
-    </nav>
+    </nav> -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="book.html">My Books</a>
+          </li>
 
-    <main>
-      <div class="row">
-        <div class ="col-lg-6 col-md-6 col-sm-6 col-xs-12"><a href="https://www.istockphoto.com/photo/eighties-computer-genius-portrait-gm476323574-66524071"><img src= "img/Profile_Picture.jpg" alt= "Geek Portrait"
-          height="400px"></a>
-          <p id = "cite">https://www.istockphoto.com/photos/geek</p>
-          </div>
-    
-          <div class ="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <h2>Meet ME!</h2>
-            <p>
-               <strong>Name: </strong> Rubus Lonelybottom<br>
-               <strong>Age: </strong> 36<br>
-               <strong>Country: </strong> America<br>
-               <strong>Birthday: </strong> January 23, 198<br>
-               <strong>Email: </strong><a href="mailto:RubusVL@booknerd.edu" class= "link">RubusVL@booknerd.edu</a> <br>
-            </p>
-            <br>
-            <p class = "border1">I have coded this website as a way to reach other book enthusiasts. My mom has told me 
-               that I need to get out of the basement more and socialize with others. I have been reading books 
-               since I was 5 years old and finshed Moby-Dick before I was 7 years old. My 'friend' criteria is pretty tough 
-               to match because I am too AWESOME. If you think you have what it takes then shoot me an email. </p>
-          </div>
+          <li class="nav-item">
+            <a class="nav-link" href="recommendation.html">Book Recommendations</a>
+          </li>
+        </ul>
+
       </div>
-    </main>
-    
+    </div>
+  </nav>
 
-    <footer class = "footer">
-      <p>As the Page Turns  |  Mom's Phone: 800-555-1234  |  Mom's Basement</p>
-    </footer>
+  <main>
+    <div class="row" id="random">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <img v-bind:src= "result.picture.large" alt="profil picture">
+        <p id="cite">https://randomuser.me/api/</p>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        
+          <h2>Meet ME!</h2>
+          <ul>
+            <!-- <li v-for="per in list">{{ per }}</li> -->
+            <li><b>Name: </b> {{result.name.first}} {{result.name.last}}</li>
+            <li><b>Age: </b> {{result.dob.age}}</li>
+            <li><b>Country: </b> {{result.location.country}}</li>
+            <li><b>Birthday: </b> {{result.dob.date}}</li>
+            <li><b>Email: </b><a class="link" v-bind:href="'mailto:'+result.email">{{result.email}}</a></li>
+          </ul>
 
-  </body>
+        
+      
+
+
+      <p class="border1">I have coded this website as a way to reach other book enthusiasts. My mom has told me
+        that I need to get out of the basement more and socialize with others. I have been reading books
+        since I was 5 years old and finshed Moby-Dick before I was 7 years old. My 'friend' criteria is pretty tough
+        to match because I am too AWESOME. If you think you have what it takes then shoot me an email. </p>
+    </div>
+    </div>
+    </div>
+  </main>
+
+
+  <footer class="footer">
+    <p>As the Page Turns | Mom's Phone: 800-555-1234 | Mom's Basement</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+  <script src="js/index.js"></script>
+</body>
+
 </html>
