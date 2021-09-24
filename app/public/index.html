@@ -14,6 +14,7 @@
   <!-- Compiled and minified JavaScript -->
 
   <link href="css/style.css" rel="stylesheet" type="text/css" />
+  
   <script src="https://unpkg.com/vue@next"></script>
 </head>
 
@@ -73,12 +74,15 @@
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         
           <h2>Meet ME!</h2>
+          <form v-on:submit.prevent="fetchUserData">
+            <button type="submit">Refresh</button>
+          </form>
           <ul>
             <!-- <li v-for="per in list">{{ per }}</li> -->
             <li><b>Name: </b> {{result.name.first}} {{result.name.last}}</li>
             <li><b>Age: </b> {{result.dob.age}}</li>
             <li><b>Country: </b> {{result.location.country}}</li>
-            <li><b>Birthday: </b> {{result.dob.date}}</li>
+            <li><b>Birthday: </b> {{ prettyBirthday }}</li>
             <li><b>Email: </b><a class="link" v-bind:href="'mailto:'+result.email">{{result.email}}</a></li>
           </ul>
 
@@ -102,6 +106,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
   <script src="js/index.js"></script>
 </body>
 
