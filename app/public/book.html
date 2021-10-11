@@ -10,7 +10,7 @@
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <!-- Compiled and minified JavaScript -->
-
+    <script src="https://unpkg.com/vue@next"></script>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
   </head>
 
@@ -44,7 +44,14 @@
     </nav>
     <main>
       <h2>My Books</h2>
+     <!----> 
 
+
+
+
+
+      <!----> 
+      <div id="book">
       <table id="taskTable" class="table table-bordered table-striped table-hover table-condensed text-center"> 
         <thead class= "tableColor">
           <tr> 
@@ -58,73 +65,20 @@
           </tr>
         </thead> 
         <tbody>
-          <tr>
-            <td>A Game of Thrones</td>	
-            <td>George Martin</td>	
-            <td>1996</td>
-            <td>Bantam Books</td>	
-            <td>835</td>	
-            <td>$15.99</td>
-            <td><input type= "checkbox"></td>
-          </tr>
-          <tr>
-            <td>The Power of Habit</td>	
-            <td>Charles Duhigg</td>	
-            <td>2012</td>
-            <td>Random House</td>	
-            <td>363</td>	
-            <td>$16.00</td>
-            <td><input type= "checkbox"></td>
-          </tr>
-          <tr>
-            <td>The Magic of Math</td>	
-            <td>Arthur Benjamin</td>	
-            <td>2015</td>
-            <td>Basic Books</td>	
-            <td>310</td>	
-            <td>$16.99</td>
-            <td><input type= "checkbox"></td>
-          </tr>
-          <tr>
-            <td>Catching Fire</td>	
-            <td>Suzanne Collins</td>	
-            <td>2009</td>
-            <td>Scholastic Press</td>	
-            <td>391</td>	
-            <td>$17.99</td>
-            <td><input type= "checkbox"></td>
-          </tr>
-          <tr>
-            <td>House of Leaves</td>	
-            <td>Mark Danielewski</td>	
-            <td>2000</td>
-            <td>Pantheon Books</td>	
-            <td>707</td>	
-            <td>$22.00</td>
-            <td><input type= "checkbox"></td>
-          </tr>
-          <tr>
-            <td>Millennium</td>	
-            <td>Felipe Armesto</td>	
-            <td>1995</td>
-            <td>Simon & Schuster NY</td>	
-            <td>815</td>	
-            <td>$18.00</td>
-            <td><input type= "checkbox"></td>
-          </tr>
-          <tr>
-            <td>Harry Potter and<br> the Sorcerer's Stone</td>	
-            <td>J.K. Rowling</td>	
-            <td>1997</td>
-            <td>Bloomsbury Publishing</td>	
-            <td>309</td>	
-            <td>$10.99</td>
+          <tr v-for="book in books">
+            <td>{{book.title}}</td>	
+            <td>{{book.author}}</td>	
+            <td>{{book.published}}</td>
+            <td>{{book.publisher}}</td>	
+            <td>{{book.pCount}}</td>	
+            <td>{{prettyDollar (book.msrp) }}</td>
             <td><input type= "checkbox"></td>
           </tr>
         </tbody>
         <tfoot>
         </tfoot>
       </table>
+      </div>
 
       <table class="table noborder"> 
 
@@ -142,7 +96,6 @@
           <tr>
             <td>Publised:</td>	
             <td><input type= "text" name="year" id="year"></td>	
-
           </tr>
           <tr>
             <td>Publisher:</td>	
@@ -170,10 +123,12 @@
     <footer class = "footer">
       <p>As the Page Turns  |  Mom's Phone: 800-555-1234  |  Mom's Basement</p>
     </footer>
+    <script src="js/book.js"></script>
     <script src='js/tablesort.min.js'></script>
     <script>
       new Tablesort(document.getElementById('taskTable'));
     </script>
+    
     <!--source: https://github.com/tristen/tablesort/blob/gh-pages/tablesort.css -->
   </body>
 </html>

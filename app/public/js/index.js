@@ -17,16 +17,21 @@ const person = {
                 },
             },
             // list: [5,6,7,8],
-            message: "Waiting ..."
+            message: "Waiting ...",
+
+
         }
     },
-    computed: {
+    computed: {},
+    methods: {
         prettyBirthday() {
             return dayjs(this.result.dob.date)
             .format('D MMMM YYYY')
-        }
-    },
-    methods: {
+        },
+        prettyDollar(n) {
+            const d = new Intl.NumberFormat("en-US").format(n);
+            return "$ " + d;
+        },
         fetchUserData() {
             fetch('https://randomuser.me/api/')
                 .then(response => response.json())
