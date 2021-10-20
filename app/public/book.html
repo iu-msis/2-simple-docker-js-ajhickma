@@ -22,23 +22,24 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="book.html">My Books</a>
+              <a class="nav-link active" aria-current="page" href="book.html">My Books</a>
             </li>
-            
+  
             <li class="nav-item">
-              <a class="nav-link" href="recommendation.html" >Book Recommendations</a>
+              <a class="nav-link" href="recommendation.html">Book Recommendations</a>
             </li>
           </ul>
-
+  
         </div>
       </div>
     </nav>
@@ -51,7 +52,8 @@
 
 
       <!----> 
-      <div id="book">
+    <div class="col col-12">
+      <div id="random">
       <table id="taskTable" class="table table-bordered table-striped table-hover table-condensed text-center"> 
         <thead class= "tableColor">
           <tr> 
@@ -61,7 +63,7 @@
             <th class= "text-center">Publisher</th>
             <th class= "text-center">Page Count</th>
             <th class= "text-center">MSRP</th>
-            <th class= "text-center">Read it?</th>
+            <th class= "text-center"> Status</th>
           </tr>
         </thead> 
         <tbody>
@@ -72,15 +74,54 @@
             <td>{{book.publisher}}</td>	
             <td>{{book.pCount}}</td>	
             <td>{{prettyDollar (book.msrp) }}</td>
-            <td><input type= "checkbox"></td>
+            <td><button class="btn btn-outline-secondary buttonSide" type="submit">Edit</button>
+              <button class="btn btn-outline-secondary" type="submit">Delete</button></td>
           </tr>
         </tbody>
         <tfoot>
         </tfoot>
       </table>
-      </div>
+      
 
-      <table class="table noborder"> 
+      <form v-on:submit.prevent="postNewBook">
+        <div class="mb-3">
+          <label for="bookTitle">Title</label>
+          <input type="text" v-model="bookForm.title" class="form-control" id="bookTitle">
+        </div>
+        <div class="mb-3">
+          <label for="bookAuthor">Author</label>
+          <input type="text" v-model="bookForm.author" class="form-control" id="bookAuthor">
+        </div>
+        <div class="mb-3">
+          <label for="bookPublished">Year Published</label>
+          <input type="number" min="1900" max="2099" step="1" v-model="bookForm.published" class="form-control" id="bookPublished">
+        </div>
+        <div class="mb-3">
+          <label for="bookPublisher">Publisher</label>
+          <input type="text" v-model="bookForm.publisher" class="form-control" id="bookPublisher">
+        </div>
+        <div class="mb-3">
+          <label for="bookPageCount">Page Count</label>
+          <input type="text" v-model="bookForm.pCount" class="form-control" id="bookPageCount">
+        </div>
+        <div class="mb-3">
+          <label for="bookMSRP">MSRP</label>
+          <input type="text" v-model="bookForm.msrp" class="form-control" id="bookMSRP">
+        </div>
+        <button type="submit" class="btn btn-secondary buttonAll">Submit</button>
+      </br>
+      </form>
+      <div class="noBooks" v-if="! books.length">
+        <h3>No Books</h3>
+      </div>
+      </div>
+    </div>
+
+
+
+
+
+      <!-- <table class="table noborder"> 
 
         <tbody>
           <tr>
@@ -115,7 +156,7 @@
           </tr>
         </tbody>
 
-      </table>
+      </table> -->
 
        
     </main>
@@ -123,7 +164,7 @@
     <footer class = "footer">
       <p>As the Page Turns  |  Mom's Phone: 800-555-1234  |  Mom's Basement</p>
     </footer>
-    <script src="js/book.js"></script>
+    <script src="js/index.js"></script>
     <script src='js/tablesort.min.js'></script>
     <script>
       new Tablesort(document.getElementById('taskTable'));

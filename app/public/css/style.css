@@ -109,3 +109,10 @@ th[role=columnheader]:not(.no-sort):hover:after {
 	opacity: 1;
 }
 
+.buttonAll{
+  margin: 10px;
+}
+
+.buttonSide{
+  margin-right: 10px;
+}

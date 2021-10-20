@@ -74,9 +74,7 @@
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         
           <h2>Meet ME!</h2>
-          <form v-on:submit.prevent="fetchUserData">
-            <button type="submit">Refresh</button>
-          </form>
+
           <ul>
             <!-- <li v-for="per in list">{{ per }}</li> -->
             <li><b>Name: </b> {{result.name.first}} {{result.name.last}}</li>
@@ -85,15 +83,15 @@
             <li><b>Birthday: </b> {{ prettyBirthday }}</li>
             <li><b>Email: </b><a class="link" v-bind:href="'mailto:'+result.email">{{result.email}}</a></li>
           </ul>
+          <form v-on:submit.prevent="fetchUserData">
+            <button class="btn btn-secondary buttonAll" type="submit">Refresh</button>
+          </form>
 
         
       
 
 
-      <p class="border1">I have coded this website as a way to reach other book enthusiasts. My mom has told me
-        that I need to get out of the basement more and socialize with others. I have been reading books
-        since I was 5 years old and finshed Moby-Dick before I was 7 years old. My 'friend' criteria is pretty tough
-        to match because I am too AWESOME. If you think you have what it takes then shoot me an email. </p>
+      <p class="border1">This website was built to bring book lovers together. With every 'refreh' you are one step away from being randomly paired with someone who loves all the same book you do. Send them an email, get to know one anothers book interests, and get to reading! </p>
     </div>
     </div>
     </div>
