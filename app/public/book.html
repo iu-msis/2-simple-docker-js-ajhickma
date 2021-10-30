@@ -74,8 +74,10 @@
             <td>{{book.publisher}}</td>	
             <td>{{book.pCount}}</td>	
             <td>{{prettyDollar (book.msrp) }}</td>
-            <td><button class="btn btn-outline-secondary buttonSide" type="submit">Edit</button>
-              <button class="btn btn-outline-secondary" type="submit">Delete</button></td>
+            <td><button class="btn btn-outline-secondary buttonSide" type="submit"
+              v-on:click="selectBook(book)">Edit</button>
+              <button class="btn btn-outline-secondary" type="button" 
+              v-on:click="postDeleteBook(book)">Delete</button></td>
           </tr>
         </tbody>
         <tfoot>
@@ -83,7 +85,7 @@
       </table>
       
 
-      <form v-on:submit.prevent="postNewBook">
+      <form v-on:submit.prevent="postBook">
         <div class="mb-3">
           <label for="bookTitle">Title</label>
           <input type="text" v-model="bookForm.title" class="form-control" id="bookTitle">
